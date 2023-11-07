@@ -1,3 +1,3 @@
 # ViewTransitionAnimate.js
 
-[Edit in Codeflow ⚡️](https://stackblitz.com/~/github.com/EdamAme-x/ViewTransitionAnimate.js)
+Animation scripts that can be introduced by simply inserting using ViewTranstion

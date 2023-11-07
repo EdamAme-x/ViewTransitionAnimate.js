@@ -8,7 +8,7 @@ const $ = (t) =>
       ''
     ),
   g = !!document.startViewTransition,
-  E = () => !!document.querySelector('[name="astro-view-transitions-enabled"]'),
+  E = () => !!document.querySelector('[name="vta-view-transitions-enabled"]'),
   S = (t) => location.pathname === t.pathname && location.search === t.search,
   k = (t) => document.dispatchEvent(new Event(t)),
   x = () => k('astro:page-load'),
@@ -16,7 +16,7 @@ const $ = (t) =>
     let t = document.createElement('div');
     t.setAttribute('aria-live', 'assertive'),
       t.setAttribute('aria-atomic', 'true'),
-      (t.className = 'astro-route-announcer'),
+      (t.className = 'vta-route-announcer'),
       document.body.append(t),
       setTimeout(() => {
         let e =
@@ -26,7 +26,7 @@ const $ = (t) =>
         t.textContent = e;
       }, 60);
   },
-  d = 'data-astro-transition-persist';
+  d = 'data-vta-transition-persist';
 let T,
   y = 0;
 history.state
@@ -76,7 +76,7 @@ async function R(t) {
   }
 }
 function P() {
-  const t = document.querySelector('[name="astro-view-transitions-fallback"]');
+  const t = document.querySelector('[name="vta-view-transitions-fallback"]');
   return t ? t.getAttribute('content') : 'animate';
 }
 function F() {
@@ -212,7 +212,7 @@ async function w(t, e, r, n, i) {
     p = () => {
       const o = document.documentElement,
         l = [...o.attributes].filter(
-          ({ name: s }) => (o.removeAttribute(s), s.startsWith('data-astro-'))
+          ({ name: s }) => (o.removeAttribute(s), s.startsWith('data-vta-'))
         );
       [...t.documentElement.attributes, ...l].forEach(({ name: s, value: a }) =>
         o.setAttribute(s, a)
@@ -265,7 +265,7 @@ async function q(t, e, r, n) {
   const m = T.parseFromString(h.html, h.mediaType);
   if (
     (m.querySelectorAll('noscript').forEach((p) => p.remove()),
-    !m.querySelector('[name="astro-view-transitions-enabled"]'))
+    !m.querySelector('[name="vta-view-transitions-enabled"]'))
   ) {
     location.href = c;
     return;
@@ -336,7 +336,7 @@ const v = () => {
   for (const t of document.scripts) t.dataset.astroExec = '';
 }
 function K() {
-  const t = document.querySelector('[name="astro-view-transitions-fallback"]');
+  const t = document.querySelector('[name="vta-view-transitions-fallback"]');
   return t ? t.getAttribute('content') : 'animate';
 }
 function W(t) {
